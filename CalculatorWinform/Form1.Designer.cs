@@ -54,10 +54,10 @@
             // 
             this.bottomTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.bottomTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.bottomTextBox.Location = new System.Drawing.Point(42, 49);
+            this.bottomTextBox.Location = new System.Drawing.Point(42, 52);
             this.bottomTextBox.Multiline = true;
             this.bottomTextBox.Name = "bottomTextBox";
-            this.bottomTextBox.Size = new System.Drawing.Size(237, 50);
+            this.bottomTextBox.Size = new System.Drawing.Size(237, 47);
             this.bottomTextBox.TabIndex = 0;
             // 
             // button1
@@ -259,9 +259,9 @@
             // label
             // 
             this.label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.label.Location = new System.Drawing.Point(42, 13);
+            this.label.Location = new System.Drawing.Point(42, 9);
             this.label.Name = "label";
-            this.label.Size = new System.Drawing.Size(237, 23);
+            this.label.Size = new System.Drawing.Size(237, 40);
             this.label.TabIndex = 4;
             // 
             // Form1

@@ -43,26 +43,27 @@ namespace CalculatorWinform
         /// <param name="e"></param>
         private void buttonEQL_Click(object sender, EventArgs e)
         {
-            topTextBox.Text = bottomTextBox.Text;
+            //label
+            label.Text = bottomTextBox.Text;
             string result = String.Empty;
             char op = '_';
-            if (topTextBox.Text.Contains('+'))
+            if (label.Text.Contains('+'))
             {
                 op = '+';
             }
-            else if (topTextBox.Text.Contains('-'))
+            else if (label.Text.Contains('-'))
             {
                 op = '-';
             }
-            else if (topTextBox.Text.Contains('*'))
+            else if (label.Text.Contains('*'))
             {
                 op = '*';
             }
-            else if (topTextBox.Text.Contains('/'))
+            else if (label.Text.Contains('/'))
             {
                 op = '/';
             }
-            var item = topTextBox.Text.Split(op);
+            var item = label.Text.Split(op);
             double myres = 0;
             switch (op)
             {
@@ -97,7 +98,7 @@ namespace CalculatorWinform
                     }
             }
             result += myres.ToString();
-            topTextBox.Text += "=" + result;
+            label.Text += "=" + result;
         }
     }
 }
