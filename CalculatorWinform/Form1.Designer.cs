@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.bottomTextBox = new System.Windows.Forms.TextBox();
-            this.topTextBox = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button44 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
@@ -48,6 +47,7 @@
             this.buttonEQL = new System.Windows.Forms.Button();
             this.buttonDOT = new System.Windows.Forms.Button();
             this.buttonADD = new System.Windows.Forms.Button();
+            this.label = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // bottomTextBox
@@ -59,16 +59,6 @@
             this.bottomTextBox.Name = "bottomTextBox";
             this.bottomTextBox.Size = new System.Drawing.Size(237, 50);
             this.bottomTextBox.TabIndex = 0;
-            // 
-            // topTextBox
-            // 
-            this.topTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.topTextBox.Location = new System.Drawing.Point(42, 12);
-            this.topTextBox.Multiline = true;
-            this.topTextBox.Name = "topTextBox";
-            this.topTextBox.ReadOnly = true;
-            this.topTextBox.Size = new System.Drawing.Size(237, 31);
-            this.topTextBox.TabIndex = 1;
             // 
             // button1
             // 
@@ -266,11 +256,21 @@
             this.buttonADD.UseVisualStyleBackColor = true;
             this.buttonADD.Click += new System.EventHandler(this.button1_Click);
             // 
+            // label
+            // 
+            this.label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.label.Location = new System.Drawing.Point(42, 13);
+            this.label.Name = "label";
+            this.label.Size = new System.Drawing.Size(237, 23);
+            this.label.TabIndex = 4;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::CalculatorWinform.Properties.Resources.baku;
             this.ClientSize = new System.Drawing.Size(334, 362);
+            this.Controls.Add(this.label);
             this.Controls.Add(this.buttonDOT);
             this.Controls.Add(this.button9);
             this.Controls.Add(this.button6);
@@ -289,7 +289,6 @@
             this.Controls.Add(this.button7);
             this.Controls.Add(this.button44);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.topTextBox);
             this.Controls.Add(this.bottomTextBox);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Name = "Form1";
@@ -303,7 +302,6 @@
         #endregion
 
         private System.Windows.Forms.TextBox bottomTextBox;
-        private System.Windows.Forms.TextBox topTextBox;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button44;
         private System.Windows.Forms.Button button7;
@@ -322,6 +320,7 @@
         private System.Windows.Forms.Button buttonEQL;
         private System.Windows.Forms.Button buttonDOT;
         private System.Windows.Forms.Button buttonADD;
+        private System.Windows.Forms.Label label;
     }
 }
 

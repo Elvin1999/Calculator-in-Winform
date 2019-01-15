@@ -14,6 +14,7 @@ namespace CalculatorWinform
     {
         public Form1()
         {
+            BackgroundImage = Properties.Resources.baku;
             InitializeComponent();
         }
 
