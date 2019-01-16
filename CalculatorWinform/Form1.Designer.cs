@@ -47,14 +47,15 @@
             this.buttonEQL = new System.Windows.Forms.Button();
             this.buttonDOT = new System.Windows.Forms.Button();
             this.buttonADD = new System.Windows.Forms.Button();
-            this.label = new System.Windows.Forms.Label();
+            this.label = new System.Windows.Forms.TextBox();
+            this.Xbutton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // bottomTextBox
             // 
             this.bottomTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.bottomTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.bottomTextBox.Location = new System.Drawing.Point(42, 52);
+            this.bottomTextBox.Location = new System.Drawing.Point(42, 71);
             this.bottomTextBox.Multiline = true;
             this.bottomTextBox.Name = "bottomTextBox";
             this.bottomTextBox.ReadOnly = true;
@@ -213,6 +214,7 @@
             this.buttonCE.TabIndex = 2;
             this.buttonCE.Text = "CE";
             this.buttonCE.UseVisualStyleBackColor = true;
+            this.buttonCE.Click += new System.EventHandler(this.buttonCE_Click);
             // 
             // buttonC
             // 
@@ -223,6 +225,7 @@
             this.buttonC.TabIndex = 2;
             this.buttonC.Text = "C";
             this.buttonC.UseVisualStyleBackColor = true;
+            this.buttonC.Click += new System.EventHandler(this.buttonC_Click);
             // 
             // buttonEQL
             // 
@@ -260,11 +263,29 @@
             // label
             // 
             this.label.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.label.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label.Location = new System.Drawing.Point(42, 9);
+            this.label.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label.Location = new System.Drawing.Point(42, 12);
+            this.label.Multiline = true;
             this.label.Name = "label";
-            this.label.Size = new System.Drawing.Size(237, 40);
-            this.label.TabIndex = 4;
+            this.label.ReadOnly = true;
+            this.label.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.label.Size = new System.Drawing.Size(237, 58);
+            this.label.TabIndex = 3;
+            this.label.Text = " ";
+            // 
+            // Xbutton
+            // 
+            this.Xbutton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Xbutton.BackColor = System.Drawing.Color.Red;
+            this.Xbutton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Xbutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.Xbutton.Location = new System.Drawing.Point(308, -1);
+            this.Xbutton.Name = "Xbutton";
+            this.Xbutton.Size = new System.Drawing.Size(31, 23);
+            this.Xbutton.TabIndex = 4;
+            this.Xbutton.Text = "X";
+            this.Xbutton.UseVisualStyleBackColor = false;
+            this.Xbutton.Click += new System.EventHandler(this.button2_Click);
             // 
             // Form1
             // 
@@ -272,6 +293,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::CalculatorWinform.Properties.Resources.baku;
             this.ClientSize = new System.Drawing.Size(334, 362);
+            this.Controls.Add(this.Xbutton);
             this.Controls.Add(this.label);
             this.Controls.Add(this.buttonDOT);
             this.Controls.Add(this.button9);
@@ -293,6 +315,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.bottomTextBox);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form1";
             this.Text = "Calculator";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -322,7 +345,8 @@
         private System.Windows.Forms.Button buttonEQL;
         private System.Windows.Forms.Button buttonDOT;
         private System.Windows.Forms.Button buttonADD;
-        private System.Windows.Forms.Label label;
+        private System.Windows.Forms.TextBox label;
+        private System.Windows.Forms.Button Xbutton;
     }
 }
 

@@ -27,6 +27,7 @@ namespace CalculatorWinform
         public bool IsClickedToEqual { get; set; }//this property check botton is already clicked to "=" operator or not 
         public bool IsClickedToAnyButton { get; set; }
         public bool IsClickedToOp { get; private set; }
+        private int Count_Calculation = 0;
         private void Form1_Load(object sender, EventArgs e)
         {
             foreach (var item in Controls)
@@ -41,23 +42,30 @@ namespace CalculatorWinform
         public bool Check { get; set; }
         private void button1_Click(object sender, EventArgs e)
         {
-           
+
             IsClickedToAnyButton = true;//it is for number Button
-           
+
             Button button = sender as Button;
+            if (bottomTextBox.Text.Contains(","))
+            {
+                if (button.Text == ",")
+                {
+                    return;
+                }
+            }
             if (bottomTextBox.Text == "0")
             {
                 bottomTextBox.Text = String.Empty;
                 if (button.Text == "0")
-                {                   
+                {
                     bottomTextBox.Text = "0";
                     bottomTextBox.Text = String.Empty;
                     label.Text = String.Empty;
                 }
-            }          
+            }
             if (!IsClickedToOp)
             {
-                bottomTextBox.Text += button.Text;               
+                bottomTextBox.Text += button.Text;
             }
             else if (IsClickedToOp)
             {
@@ -89,7 +97,7 @@ namespace CalculatorWinform
                     }
                 case "-":
                     {
-                        Result += " "+(FirstNumber - SecondNumber).ToString();
+                        Result += " " + (FirstNumber - SecondNumber).ToString();
                         break;
                     }
                 case "/":
@@ -98,11 +106,14 @@ namespace CalculatorWinform
                         break;
                     }
             }
+            ++Count_Calculation;
             label.Text += Result;
-                                
+            Result = String.Empty;            
+            bottomTextBox.Text = String.Empty;
+            label.Text += "\r\n";
         }
         private void operator_click(object sender, EventArgs e)
-        {      
+        {
             IsClickedToOp = true;
             Button button = sender as Button;
             Operator = button.Text;
@@ -111,14 +122,18 @@ namespace CalculatorWinform
 
         private void buttonCE_Click(object sender, EventArgs e)
         {
-
+            bottomTextBox.Text = String.Empty;
+            label.Text = String.Empty;
         }
 
         private void buttonC_Click(object sender, EventArgs e)
         {
-
+            bottomTextBox.Text = String.Empty;
         }
 
-        
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
