@@ -27,10 +27,8 @@ namespace CalculatorWinform
         public bool IsClickedToEqual { get; set; }//this property check botton is already clicked to "=" operator or not 
         public bool IsClickedToAnyButton { get; set; }
         public bool IsClickedToOp { get; private set; }
-
         private void Form1_Load(object sender, EventArgs e)
         {
-
             foreach (var item in Controls)
             {
                 if (item is Button button)
@@ -43,12 +41,13 @@ namespace CalculatorWinform
         public bool Check { get; set; }
         private void button1_Click(object sender, EventArgs e)
         {
+            
             IsClickedToAnyButton = true;//it is for number Button
             Button button = sender as Button;
+            
             if (!IsClickedToOp)
             {
-                bottomTextBox.Text += button.Text;
-
+                bottomTextBox.Text += button.Text;               
             }
             else if (IsClickedToOp)
             {
@@ -58,16 +57,46 @@ namespace CalculatorWinform
                 IsClickedToOp = false;
                 bottomTextBox.Text += button.Text;
             }
+            label.Text += button.Text;
         }
         private void buttonEQL_Click(object sender, EventArgs e)
         {
+            Result += " = ";
             SecondNumber = double.Parse(bottomTextBox.Text);
             IsClickedToEqual = true;
             MessageBox.Show($"f {FirstNumber} s {SecondNumber}");
+            switch (Operator)
+            {
+                case "+":
+                    {
+                        Result += " " + (FirstNumber + SecondNumber).ToString();
+                        break;
+                    }
+                case "*":
+                    {
+                        Result += " " + (FirstNumber * SecondNumber).ToString();
+                        break;
+                    }
+                case "-":
+                    {
+                        Result += " "+(FirstNumber - SecondNumber).ToString();
+                        break;
+                    }
+                case "/":
+                    {
+                        Result += " " + (FirstNumber / SecondNumber).ToString();
+                        break;
+                    }
+            }
+                      
+           
         }
         private void operator_click(object sender, EventArgs e)
         {
             IsClickedToOp = true;
+            Button button = sender as Button;
+            Operator = button.Text;
+            label.Text += Operator;
         }
 
         private void buttonCE_Click(object sender, EventArgs e)
@@ -80,9 +109,6 @@ namespace CalculatorWinform
 
         }
 
-        private void buttonDot_Click(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }
