@@ -57,6 +57,7 @@
             this.bottomTextBox.Location = new System.Drawing.Point(42, 52);
             this.bottomTextBox.Multiline = true;
             this.bottomTextBox.Name = "bottomTextBox";
+            this.bottomTextBox.ReadOnly = true;
             this.bottomTextBox.Size = new System.Drawing.Size(237, 47);
             this.bottomTextBox.TabIndex = 0;
             // 
@@ -212,6 +213,7 @@
             this.buttonCE.TabIndex = 2;
             this.buttonCE.Text = "CE";
             this.buttonCE.UseVisualStyleBackColor = true;
+            this.buttonCE.Click += new System.EventHandler(this.buttonCE_Click);
             // 
             // buttonC
             // 
@@ -222,6 +224,7 @@
             this.buttonC.TabIndex = 2;
             this.buttonC.Text = "C";
             this.buttonC.UseVisualStyleBackColor = true;
+            this.buttonC.Click += new System.EventHandler(this.buttonC_Click);
             // 
             // buttonEQL
             // 
@@ -243,7 +246,7 @@
             this.buttonDOT.TabIndex = 2;
             this.buttonDOT.Text = ".";
             this.buttonDOT.UseVisualStyleBackColor = true;
-            this.buttonDOT.Click += new System.EventHandler(this.button1_Click);
+            this.buttonDOT.Click += new System.EventHandler(this.buttonDot_Click);
             // 
             // buttonADD
             // 
