@@ -59,7 +59,7 @@ namespace CalculatorWinform
             }
             else
             {
-bottomTextBox.Text += button.Text;
+                bottomTextBox.Text += button.Text;
             }
             //string temp = "";
             //if (Check)
@@ -67,7 +67,7 @@ bottomTextBox.Text += button.Text;
             //    
             //}
 
-            
+
 
             //SecondNumber = bottomTextBox.Text -= button.Text;
 
