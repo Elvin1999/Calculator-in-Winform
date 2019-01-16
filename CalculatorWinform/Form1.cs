@@ -47,7 +47,6 @@ namespace CalculatorWinform
             }
             Count_star = 0;
             IsClickedToAnyButton = true;//it is for number Button
-
             Button button = sender as Button;
             if (bottomTextBox.Text.Contains(","))
             {
@@ -56,7 +55,6 @@ namespace CalculatorWinform
                     return;
                 }
             }
-
             if (bottomTextBox.Text == "0")
             {
                 bottomTextBox.Text = String.Empty;
@@ -114,7 +112,7 @@ namespace CalculatorWinform
             label.Text += Result;
             Result = String.Empty;
             bottomTextBox.Text = String.Empty;
-            label.Text += " ";
+            label.Text += "\r\n ";
         }
         private void operator_click(object sender, EventArgs e)
         {
@@ -144,6 +142,18 @@ namespace CalculatorWinform
         private void button2_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void buttonNegative_Click(object sender, EventArgs e)
+        {
+            if (bottomTextBox.Text == "0"|| bottomTextBox.Text == String.Empty)
+            {
+                bottomTextBox.Text = String.Empty;
+                bottomTextBox.Text += "-";
+                label.Text += "-";
+            }
+          
+
         }
     }
 }
