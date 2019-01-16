@@ -213,7 +213,7 @@
             this.buttonCE.TabIndex = 2;
             this.buttonCE.Text = "CE";
             this.buttonCE.UseVisualStyleBackColor = true;
-            this.buttonCE.Click += new System.EventHandler(this.buttonCE_Click);
+       
             // 
             // buttonC
             // 
@@ -224,7 +224,7 @@
             this.buttonC.TabIndex = 2;
             this.buttonC.Text = "C";
             this.buttonC.UseVisualStyleBackColor = true;
-            this.buttonC.Click += new System.EventHandler(this.buttonC_Click);
+      
             // 
             // buttonEQL
             // 
@@ -246,7 +246,7 @@
             this.buttonDOT.TabIndex = 2;
             this.buttonDOT.Text = ".";
             this.buttonDOT.UseVisualStyleBackColor = true;
-            this.buttonDOT.Click += new System.EventHandler(this.buttonDot_Click);
+     
             // 
             // buttonADD
             // 

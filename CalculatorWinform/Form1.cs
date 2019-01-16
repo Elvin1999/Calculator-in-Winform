@@ -14,18 +14,20 @@ namespace CalculatorWinform
     {
         public Form1()
         {
-            
+
             //BackgroundImage = Properties.Resources.baku;
             InitializeComponent();
             bottomTextBox.Text = defaultZero;
         }
-        string defaultZero = "0";
+        string defaultZero = "";
         public string Result { get; set; }
         public double FirstNumber { get; set; }
         public double SecondNumber { get; set; }
         public string Operator { get; set; }
         public bool IsClickedToEqual { get; set; }//this property check botton is already clicked to "=" operator or not 
         public bool IsClickedToAnyButton { get; set; }
+        public bool IsClickedToOp { get; private set; }
+
         private void Form1_Load(object sender, EventArgs e)
         {
 
@@ -38,88 +40,48 @@ namespace CalculatorWinform
             }
             buttonCE.Font = new Font("Italic", 14);
         }
-
+        public bool Check { get; set; }
         private void button1_Click(object sender, EventArgs e)
         {
-            bottomTextBox.Text = String.Empty;
-            if (IsClickedToEqual)
-            {
-                bottomTextBox.Text = String.Empty;
-                label.Text += "\n";
-                IsClickedToEqual = false;
-            }
-            IsClickedToAnyButton = true;
+            IsClickedToAnyButton = true;//it is for number Button
             Button button = sender as Button;
-            bottomTextBox.Text += button.Text;
-            label.Text += bottomTextBox.Text;
-            SecondNumber = double.Parse(bottomTextBox.Text);      //second number  
+            if (!IsClickedToOp)
+            {
+                bottomTextBox.Text += button.Text;
+                Check = true;
+            }
+            else
+            {
+                FirstNumber = int.Parse(bottomTextBox.Text);
+                bottomTextBox.Text = String.Empty;
+                IsClickedToOp = false;
+            }
+            
+
         }
         private void buttonEQL_Click(object sender, EventArgs e)
         {
             IsClickedToEqual = true;
-            switch (Operator)
-            {
-                case "+":
-                    {
-
-                        Result = (FirstNumber + SecondNumber).ToString();
-                        label.Text += " = " + Result;
-                        break;
-                    }
-                case "-":
-                    {
-
-                        Result = (FirstNumber - SecondNumber).ToString();
-                        label.Text += " = " + Result;
-                        break;
-                    }
-                case "*":
-                    {
-
-                        Result = (FirstNumber * SecondNumber).ToString();
-                        label.Text += " = " + Result;
-                        break;
-                    }
-                case "/":
-                    {
-                        if (SecondNumber == 0)
-                        {
-                            label.Text = "Infinitive";
-                            bottomTextBox.Text = "0";
-                            break;
-                        }
-                        Result = (FirstNumber / SecondNumber).ToString();
-                        label.Text += " = " + Result;
-                        break;
-                    }
-            }
-            //FirstNumber = 0;
-            //SecondNumber = 0;           
+            MessageBox.Show($"f {FirstNumber} s {SecondNumber}");
         }
         private void operator_click(object sender, EventArgs e)
         {
-            FirstNumber = double.Parse(bottomTextBox.Text);//first number
-            bottomTextBox.Text = String.Empty;
-            Button button = sender as Button;
-            Operator = button.Text;
-            label.Text += Operator;
+            IsClickedToOp = true;
         }
 
         private void buttonCE_Click(object sender, EventArgs e)
         {
-            label.Text = String.Empty;
-            bottomTextBox.Text = defaultZero;
+
         }
 
         private void buttonC_Click(object sender, EventArgs e)
         {
-            bottomTextBox.Text = String.Empty;
+
         }
 
         private void buttonDot_Click(object sender, EventArgs e)
         {
-            bottomTextBox.Text += ".";
-            label.Text += ".";
+
         }
     }
 }
