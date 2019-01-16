@@ -28,6 +28,7 @@ namespace CalculatorWinform
         public bool IsClickedToAnyButton { get; set; }
         public bool IsClickedToOp { get; private set; }
         private int Count_Calculation = 0;
+        private int Count_star = 0;
         private void Form1_Load(object sender, EventArgs e)
         {
             foreach (var item in Controls)
@@ -42,7 +43,7 @@ namespace CalculatorWinform
         public bool Check { get; set; }
         private void button1_Click(object sender, EventArgs e)
         {
-
+            Count_star = 0;
             IsClickedToAnyButton = true;//it is for number Button
 
             Button button = sender as Button;
@@ -53,6 +54,7 @@ namespace CalculatorWinform
                     return;
                 }
             }
+
             if (bottomTextBox.Text == "0")
             {
                 bottomTextBox.Text = String.Empty;
@@ -108,16 +110,29 @@ namespace CalculatorWinform
             }
             ++Count_Calculation;
             label.Text += Result;
-            Result = String.Empty;            
+            Result = String.Empty;
             bottomTextBox.Text = String.Empty;
-            label.Text += "\r\n";
+            label.Text += " ";
         }
         private void operator_click(object sender, EventArgs e)
         {
             IsClickedToOp = true;
             Button button = sender as Button;
             Operator = button.Text;
+            var count = bottomTextBox.Text.Count();
+
+            if (button.Text == Operator)
+            {
+                ++Count_star;
+            }
+            if (Count_star > 1)
+            {
+                return;
+            }
+
+
             label.Text += Operator;
+
         }
 
         private void buttonCE_Click(object sender, EventArgs e)
