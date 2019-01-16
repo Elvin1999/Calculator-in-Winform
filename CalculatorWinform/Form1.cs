@@ -7,14 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
 namespace CalculatorWinform
 {
     public partial class Form1 : Form
     {
         public Form1()
         {
-
             //BackgroundImage = Properties.Resources.baku;
             InitializeComponent();
             bottomTextBox.Text = defaultZero;
@@ -43,6 +41,10 @@ namespace CalculatorWinform
         public bool Check { get; set; }
         private void button1_Click(object sender, EventArgs e)
         {
+            if (IsClickedToOp && Count_star == 2)
+            {
+                return;
+            }
             Count_star = 0;
             IsClickedToAnyButton = true;//it is for number Button
 
@@ -120,7 +122,6 @@ namespace CalculatorWinform
             Button button = sender as Button;
             Operator = button.Text;
             var count = bottomTextBox.Text.Count();
-
             if (button.Text == Operator)
             {
                 ++Count_star;
@@ -129,23 +130,17 @@ namespace CalculatorWinform
             {
                 return;
             }
-
-
             label.Text += Operator;
-
         }
-
         private void buttonCE_Click(object sender, EventArgs e)
         {
             bottomTextBox.Text = String.Empty;
             label.Text = String.Empty;
         }
-
         private void buttonC_Click(object sender, EventArgs e)
         {
             bottomTextBox.Text = String.Empty;
         }
-
         private void button2_Click(object sender, EventArgs e)
         {
             Application.Exit();
