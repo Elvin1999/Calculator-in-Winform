@@ -64,7 +64,7 @@ namespace CalculatorWinform
             Result += " = ";
             SecondNumber = double.Parse(bottomTextBox.Text);
             IsClickedToEqual = true;
-            MessageBox.Show($"f {FirstNumber} s {SecondNumber}");
+
             switch (Operator)
             {
                 case "+":
@@ -88,8 +88,8 @@ namespace CalculatorWinform
                         break;
                     }
             }
-                      
-           
+            label.Text += Result;
+                                
         }
         private void operator_click(object sender, EventArgs e)
         {
