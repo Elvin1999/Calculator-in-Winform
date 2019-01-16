@@ -48,15 +48,28 @@ namespace CalculatorWinform
             if (!IsClickedToOp)
             {
                 bottomTextBox.Text += button.Text;
-                Check = true;
+
             }
-            else
+            else if (IsClickedToOp)
             {
                 FirstNumber = int.Parse(bottomTextBox.Text);
                 bottomTextBox.Text = String.Empty;
+                Check = true;
                 IsClickedToOp = false;
             }
+            else
+            {
+bottomTextBox.Text += button.Text;
+            }
+            //string temp = "";
+            //if (Check)
+            //{
+            //    
+            //}
+
             
+
+            //SecondNumber = bottomTextBox.Text -= button.Text;
 
         }
         private void buttonEQL_Click(object sender, EventArgs e)
