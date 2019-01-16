@@ -102,7 +102,7 @@ namespace CalculatorWinform
                                 
         }
         private void operator_click(object sender, EventArgs e)
-        {
+        {      
             IsClickedToOp = true;
             Button button = sender as Button;
             Operator = button.Text;
