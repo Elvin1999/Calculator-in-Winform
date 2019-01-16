@@ -17,7 +17,10 @@ namespace CalculatorWinform
             BackgroundImage = Properties.Resources.baku;
             InitializeComponent();
         }
-
+        public string Result { get; set; }
+        public double FirstNumber { get; set; }
+        public double SecondNumber { get; set; }
+        public string Operator { get; set; }
         private void Form1_Load(object sender, EventArgs e)
         {
 
@@ -35,70 +38,57 @@ namespace CalculatorWinform
         {
             Button button = sender as Button;
             bottomTextBox.Text += button.Text;
+            label.Text += bottomTextBox.Text;
+            SecondNumber = double.Parse(bottomTextBox.Text);        
         }
-        /// <summary>
-        /// YARIMCHIQ
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void buttonEQL_Click(object sender, EventArgs e)
         {
-            //label
-            label.Text = bottomTextBox.Text;
-            string result = String.Empty;
-            char op = '_';
-            if (label.Text.Contains('+'))
+            switch (Operator)
             {
-                op = '+';
-            }
-            else if (label.Text.Contains('-'))
-            {
-                op = '-';
-            }
-            else if (label.Text.Contains('*'))
-            {
-                op = '*';
-            }
-            else if (label.Text.Contains('/'))
-            {
-                op = '/';
-            }
-            var item = label.Text.Split(op);
-            double myres = 0;
-            switch (op)
-            {
-                case '+':
+                case "+":
                     {
-                        myres = Convert.ToDouble(item[0]) + Convert.ToDouble(item[1]);
+
+                        Result = (FirstNumber + SecondNumber).ToString();
+                        label.Text += " = " + Result;
                         break;
                     }
-                case '-':
+                case "-":
                     {
-                        myres = Convert.ToDouble(item[0]) - Convert.ToDouble(item[1]);
+
+                        Result = (FirstNumber - SecondNumber).ToString();
+                        label.Text += " = " + Result;
                         break;
                     }
-                case '*':
+                case "*":
                     {
-                        myres = Convert.ToDouble(item[0]) * Convert.ToDouble(item[1]);
+
+                        Result = (FirstNumber * SecondNumber).ToString();
+                        label.Text += " = " + Result;
                         break;
                     }
-                case '/':
+                case "/":
                     {
-                        if (Convert.ToDouble(item[1]) == 0)
+                        if (SecondNumber == 0)
                         {
-                            myres = 0;
+                            label.Text = "Infinitive";
+                            bottomTextBox.Text = "0";
                             break;
                         }
-                        else
-                        {
-                            myres = Convert.ToDouble(item[0]) / Convert.ToDouble(item[1]);
-                        }
-
+                        Result = (FirstNumber / SecondNumber).ToString();
+                        label.Text += " = " + Result;
                         break;
                     }
             }
-            result += myres.ToString();
-            label.Text += "=" + result;
+            FirstNumber = 0;
+            SecondNumber = 0;           
+        }
+        private void operator_click(object sender, EventArgs e)
+        {
+            FirstNumber = double.Parse(bottomTextBox.Text);
+            bottomTextBox.Text = String.Empty;          
+            Button button = sender as Button;            
+            Operator = button.Text;
+            label.Text += Operator;
         }
     }
 }
