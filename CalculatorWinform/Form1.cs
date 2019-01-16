@@ -52,28 +52,16 @@ namespace CalculatorWinform
             }
             else if (IsClickedToOp)
             {
-                FirstNumber = int.Parse(bottomTextBox.Text);
+                FirstNumber = double.Parse(bottomTextBox.Text);
                 bottomTextBox.Text = String.Empty;
                 Check = true;
                 IsClickedToOp = false;
-            }
-            else
-            {
                 bottomTextBox.Text += button.Text;
             }
-            //string temp = "";
-            //if (Check)
-            //{
-            //    
-            //}
-
-
-
-            //SecondNumber = bottomTextBox.Text -= button.Text;
-
         }
         private void buttonEQL_Click(object sender, EventArgs e)
         {
+            SecondNumber = double.Parse(bottomTextBox.Text);
             IsClickedToEqual = true;
             MessageBox.Show($"f {FirstNumber} s {SecondNumber}");
         }
