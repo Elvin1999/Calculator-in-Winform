@@ -19,7 +19,7 @@ namespace CalculatorWinform
             InitializeComponent();
             bottomTextBox.Text = defaultZero;
         }
-        string defaultZero = "";
+        string defaultZero = "0";
         public string Result { get; set; }
         public double FirstNumber { get; set; }
         public double SecondNumber { get; set; }
@@ -41,10 +41,20 @@ namespace CalculatorWinform
         public bool Check { get; set; }
         private void button1_Click(object sender, EventArgs e)
         {
-            
+           
             IsClickedToAnyButton = true;//it is for number Button
+           
             Button button = sender as Button;
-            
+            if (bottomTextBox.Text == "0")
+            {
+                bottomTextBox.Text = String.Empty;
+                if (button.Text == "0")
+                {                   
+                    bottomTextBox.Text = "0";
+                    bottomTextBox.Text = String.Empty;
+                    label.Text = String.Empty;
+                }
+            }          
             if (!IsClickedToOp)
             {
                 bottomTextBox.Text += button.Text;               
